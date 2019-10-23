@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web Knysh</title>
+		<meta name = "description" content = "Лекція 1">
+		<meta name = "author" content = "Mihail Knysh">
+		<link rel="stylesheet" type="text/css" href="styles.css"/>
+		<style>
+			h1, h2, h3, h4, h5, h6{
+    color: #d2691e;
+	text-align:center;
+	text-shadow: 4px 3px 8px #d2691e;
+}
+
+a{
+  color:#4169e1;
+  text-decoration:none;  
+}
+
+a:hover{
+	color:red;
+	text-decoration:underline
+}
+
+.khakcol{
+	background-color: #f4a460;
+}
+
+body{
+	background-color: #fffacd;
+}
+
+li{
+	list-style-type:none;
+}
+
+li:before{
+	color:#ffa07a;
+	content:"►";
+	padding-right: 10px;
+}
+
+dt{
+	text-decoration:underline;
+}
+		</style>
+    </head>
+    <body>
+        <article>
+            <header>
+                <h1>Основи Internet. Web служба. Протокол HTTP</h1>
+            </header>
+            <nav>
+			<p><a name="top"></a><b>Зміст лекції</b></p>
+                <ul>
+                    <li><a href="#part1">Основи Internet</a></li>
+                    <li><a href="#part2">Internet як мережа</a></li>
+					<li><a href="#part3">Web – служба (www)</a></li>
+					<li><a href="#part4">Список використаних джерел</a></li>
+                </ul>
+			</dl>
+            </nav>
+            <div>
+                <section id="part1">
+                    <h3>Основи Internet</h3>
+                    <p>
+						<dl>
+							<dt>Internet</dt>
+							<dd>система взаємопов’язаних комп’ютерних мереж, 
+							які використовують стек протоколів TCP\IP для зв’язку пристроїв між собою.  </dd>
+							<p>Internet має широкий спектр інформаційних ресурсів та послуг: взаємопов’язані гіпертекстові документи, електронна пошта, IP телефонія та ін. 
+							<br>Ключові організації, пов’язані з інтернет:</p>
+							<ul>
+								<dt>ICANN</dt>
+								<dd>некомерційна організація, яка займається доменними іменами та IP адресами;</dd>
+								<dt>IETF</dt>
+								<dd>відкрите міжнародне товариство проектувальників, учених і провайдерів, які займаються розвитком протоколів та архітектури Internet;</dd>
+								<dt>ISOC</dt>
+								<dd>організація фахівців, яка формує політику і практику Internet; стандартизація Internet. Ця організація володіє правами на документи RFC (документи, які містять технічну документацію і стандарти Internet). </dd>
+							</ul>
+						</dl>
+						Етапи розвитку мережі Internet:
+						<ul>
+							<li>1961 – ARPANET;</li>
+							<li>1973 – DNS;</li>
+							<li>1983 – NFSNET;</li>
+							<li>1990 – INTERNET.</li>
+						</ul>
+					</p>
+					<p><a href="#top">До змісту</a></p>
+                </section>
+                <section id="part2">
+                    <h3>Internet як мережа</h3>
+                    <p>
+						Рівні моделі OSI
+						<ol start="4" reversed>
+							<li>Прикладний – HTTP, FTP, Telnet;</li>
+							<li>Транспортний – TCP, UDP;</li>
+							<li>Між мережевий – IP;</li>
+							<li>Канальний – Ethernet.</li>
+						</ol>
+						<dl>
+							<dt>Для доступу до мережевого ресурсу використовується так званий URL:</dt>
+							<dd><i>URL: schema: [//authority] path [? query] [#fragment]</i><br>
+							<i>schema</i> - протокол;<br>
+							<i>authority</i> - [userinfo@] host [: port];<br>
+							<i>path</i> - шлях для уточнення вказівки на місце знаходження ресурсу;<br>
+							<i>query</i> - рядок параметра виду “параметр = значення”, розділених символом `&`.<br></dd>
+							<dt>Приклади</dt>
+							<dd><i>ftp://user:pass@ftp.example.org – authority</i></dd>
+							<dd><i>http://example.org/script.php?key = value</i></dd>
+						</dl>
+					</p>
+					<p><a href="#top">До змісту</a></p>
+                </section>
+				<section id="part3">
+                    <h3>Web – служба (www)</h3>
+                    <p>
+						<dl>
+							<dt>Web</dt>
+							<dd>це інформаційний простір, де документи та інші Web – ресурси, які ідентифікуються URL,
+							пов’язані між собою гіпертекстовими посиланнями та доступними через Internet.</dd>
+							<dt>Протокол HTTP </dt>
+							<dd>протокол передачі гіпертексту. Версії:</dd>
+							<dd>
+								<li>HTTP/09 – 1992;</li>
+								<li>HTTP/1 – 1996;</li>
+								<li>HTTP/1.1 – 1999;</li>
+								<li>HTTP/2 – 2015.</li>
+							</dd>
+						</dl>
+						Основою HTTP є технологія клієнт – сервер. Кожне HTTP повідомлення складається із:
+						<ol>
+							<li>Стартовий рядок;</li>
+							<li>Заголовки;</li>
+							<li>Тіло повідомлення.</li>
+						</ol>
+						Стартовий рядок визначає тип повідомлення. Формат для запиту і відповіді різний.
+						Запит: Метод URL HTTP Версія<br>
+						Метод – тип запиту. Існують:
+						<ul>
+							<li>GET;</li>
+							<li>PUT;</li>
+							<li>POST;</li>
+							<li>DELETE.</li>
+						</ul>
+						<dl>
+							<dt>Приклад</dt>
+							<dd><i>GET/wiki/HTTP HTTP/1.1</i></dd><br>
+							<dt>Відповідь: HTTP Версія Код стану Пояснення</dt>
+							<dd>1хх – інформаційний клас;</dd>
+							<dd>2хх – успіх;</dd>
+							<dd>3хх – перенаправлення;</dd>
+							<dd>4хх – помилка клієнта;</dd>
+							<dd>5хх – помилка сервера.</dd>
+							<dt>Приклади</dt>
+							<dd>404 – Not found</dd>
+							<dd>500 - Internal</dd>
+						</dl>
+					</p>
+					<p><a href="#top">До змісту</a></p>
+                </section>
+				<section id="part4">
+                    <h3>Список використаних джерел</h3>
+                    <p>
+						<ol>
+							<li><a href = "http://i.voenmeh.ru/kafi5/Kam.loc/HTML_upr/Upr_HTML.html" target="blank">
+							HTML. Створення гіпертекстових документів</a></li>
+							<li><a href = "http://shkolo.ru/html-yazyik-razmetki-giperteksta/" target="blank">
+							HTML - мова розмітки гіпертексту</li>
+							<li><a href = "https://www.w3schools.com/" target="blank">
+							HTML - the language for building web pages</a></li>
+						</ol>
+					</p>
+					<p><a href="#top">До змісту</a></p>
+                </section>
+            </div>
+        </article>
+		<footer class="khakcol">
+            <p align="center"><a href="/license">Privacy Policy</a> | 
+            <a href="/about">About the site</a> | 
+            <a href="/donation">Donations</a></p>
+            <p align="center"><small>2019 Author</small></p>
+        </footer>
+    </body>
+</html>
